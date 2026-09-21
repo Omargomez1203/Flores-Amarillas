@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores amarillas 💛</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            height: 100vh;
+            background: linear-gradient(
+                to bottom,
+                #87CEEB 0%,
+                #ffd98e 55%,
+                #f5b642 100%
+            );
+            font-family: Georgia, serif;
+        }
+
+        /* Sol */
+        .sun {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: #ffd93d;
+            border-radius: 50%;
+            top: 8%;
+            right: 12%;
+            box-shadow: 0 0 60px #ffd93d;
+            animation: sun 4s infinite alternate;
+        }
+
+        @keyframes sun {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.08);
+            }
+        }
+
+        /* Mensaje */
+        .mensaje {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            max-width: 700px;
+            text-align: center;
+            color: #5b3515;
+            z-index: 10;
+            animation: aparecer 3s ease;
+        }
+
+        .mensaje h1 {
+            font-size: clamp(30px, 5vw, 55px);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(255,255,255,.5);
+        }
+
+        .mensaje p {
+            font-size: clamp(20px, 3vw, 30px);
+            line-height: 1.5;
+        }
+
+        .corazon {
+            font-size: 45px;
+            margin-top: 20px;
+            animation: latido 1.5s infinite;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        @keyframes latido {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.25);
+            }
+        }
+
+        /* Campo */
+        .campo {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 35%;
+            background: linear-gradient(
+                to bottom,
+                #78a83d,
+                #315c25
+            );
+        }
+
+        /* Flores */
+        .flor {
+            position: absolute;
+            bottom: 18%;
+            width: 80px;
+            height: 160px;
+            animation: mover 4s ease-in-out infinite alternate;
+        }
+
+        .flor::before {
+            content: "";
+            position: absolute;
+            width: 8px;
+            height: 120px;
+            background: #3d7a2b;
+            left: 36px;
+            top: 45px;
+            border-radius: 10px;
+        }
+
+        .centro {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            background: #6b3e16;
+            border-radius: 50%;
+            top: 20px;
+            left: 22px;
+            z-index: 2;
+        }
+
+        .petalo {
+            position: absolute;
+            width: 32px;
+            height: 55px;
+            background: #ffd21f;
+            border-radius: 50%;
+            left: 23px;
+            top: 10px;
+            transform-origin: 50% 100%;
+        }
+
+        .p1 { transform: rotate(0deg) translateY(-25px); }
+        .p2 { transform: rotate(45deg) translateY(-25px); }
+        .p3 { transform: rotate(90deg) translateY(-25px); }
+        .p4 { transform: rotate(135deg) translateY(-25px); }
+        .p5 { transform: rotate(180deg) translateY(-25px); }
+        .p6 { transform: rotate(225deg) translateY(-25px); }
+        .p7 { transform: rotate(270deg) translateY(-25px); }
+        .p8 { transform: rotate(315deg) translateY(-25px); }
+
+        @keyframes mover {
+            from {
+                transform: rotate(-3deg);
+            }
+
+            to {
+                transform: rotate(3deg);
+            }
+        }
+
+        /* Posiciones de flores */
+        .f1 {
+            left: 5%;
+            transform: scale(1.1);
+        }
+
+        .f2 {
+            left: 25%;
+            bottom: 15%;
+            transform: scale(.8);
+        }
+
+        .f3 {
+            left: 48%;
+            bottom: 12%;
+            transform: scale(1.3);
+        }
+
+        .f4 {
+            right: 22%;
+            bottom: 16%;
+            transform: scale(.9);
+        }
+
+        .f5 {
+            right: 5%;
+            bottom: 15%;
+            transform: scale(1.2);
+        }
+
+        /* Pétalos cayendo */
+        .petalo-caida {
+            position: absolute;
+            top: -50px;
+            width: 15px;
+            height: 25px;
+            background: #ffd21f;
+            border-radius: 50%;
+            opacity: .8;
+            animation: caer linear infinite;
+        }
+
+        @keyframes caer {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+
+        .pca1 {
+            left: 10%;
+            animation-duration: 7s;
+        }
+
+        .pca2 {
+            left: 30%;
+            animation-duration: 9s;
+            animation-delay: 2s;
+        }
+
+        .pca3 {
+            left: 55%;
+            animation-duration: 8s;
+            animation-delay: 1s;
+        }
+
+        .pca4 {
+            left: 75%;
+            animation-duration: 10s;
+            animation-delay: 3s;
+        }
+
+        .pca5 {
+            left: 90%;
+            animation-duration: 7s;
+            animation-delay: 1.5s;
+        }
+
+        /* Estrellas */
+        .estrella {
+            position: absolute;
+            color: white;
+            font-size: 25px;
+            animation: brillo 2s infinite alternate;
+        }
+
+        @keyframes brillo {
+            from {
+                opacity: .2;
+                transform: scale(.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        .e1 {
+            top: 15%;
+            left: 15%;
+        }
+
+        .e2 {
+            top: 30%;
+            left: 80%;
+        }
+
+        .e3 {
+            top: 12%;
+            left: 45%;
+        }
+
+        /* Adaptación para celular */
+        @media (max-width: 600px) {
+
+            .mensaje {
+                top: 12%;
+            }
+
+            .sun {
+                width: 80px;
+                height: 80px;
+            }
+
+            .flor {
+                transform: scale(.65);
+            }
+
+            .f2,
+            .f4 {
+                display: none;
+            }
+
+            .f1 {
+                left: -5%;
+            }
+
+            .f3 {
+                left: 38%;
+            }
+
+            .f5 {
+                right: -5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sol -->
+    <div class="sun"></div>
+
+    <!-- Mensaje -->
+    <div class="mensaje">
+        <h1>🌻 Flores amarillas 🌻</h1>
+
+        <p>
+            Estas flores amarillas son para ti,
+            porque quería regalarte un pequeño
+            pedacito de felicidad. 💛
+        </p>
+
+        <div class="corazon">💛</div>
+    </div>
+
+    <!-- Estrellas -->
+    <div class="estrella e1">✦</div>
+    <div class="estrella e2">✦</div>
+    <div class="estrella e3">✦</div>
+
+    <!-- Pétalos cayendo -->
+    <div class="petalo-caida pca1"></div>
+    <div class="petalo-caida pca2"></div>
+    <div class="petalo-caida pca3"></div>
+    <div class="petalo-caida pca4"></div>
+    <div class="petalo-caida pca5"></div>
+
+    <!-- Campo -->
+    <div class="campo"></div>
+
+    <!-- Flores -->
+    <div class="flor f1">
+        <div class="petalo p1"></div>
+        <div class="petalo p2"></div>
+        <div class="petalo p3"></div>
+        <div class="petalo p4"></div>
+        <div class="petalo p5"></div>
+        <div class="petalo p6"></div>
+        <div class="petalo p7"></div>
+        <div class="petalo p8"></div>
+        <div class="centro"></div>
+    </div>
+
+    <div class="flor f2">
+        <div class="petalo p1"></div>
+        <div class="petalo p2"></div>
+        <div class="petalo p3"></div>
+        <div class="petalo p4"></div>
+        <div class="petalo p5"></div>
+        <div class="petalo p6"></div>
+        <div class="petalo p7"></div>
+        <div class="petalo p8"></div>
+        <div class="centro"></div>
+    </div>
+
+    <div class="flor f3">
+        <div class="petalo p1"></div>
+        <div class="petalo p2"></div>
+        <div class="petalo p3"></div>
+        <div class="petalo p4"></div>
+        <div class="petalo p5"></div>
+        <div class="petalo p6"></div>
+        <div class="petalo p7"></div>
+        <div class="petalo p8"></div>
+        <div class="centro"></div>
+    </div>
+
+    <div class="flor f4">
+        <div class="petalo p1"></div>
+        <div class="petalo p2"></div>
+        <div class="petalo p3"></div>
+        <div class="petalo p4"></div>
+        <div class="petalo p5"></div>
+        <div class="petalo p6"></div>
+        <div class="petalo p7"></div>
+        <div class="petalo p8"></div>
+        <div class="centro"></div>
+    </div>
+
+    <div class="flor f5">
+        <div class="petalo p1"></div>
+        <div class="petalo p2"></div>
+        <div class="petalo p3"></div>
+        <div class="petalo p4"></div>
+        <div class="petalo p5"></div>
+        <div class="petalo p6"></div>
+        <div class="petalo p7"></div>
+        <div class="petalo p8"></div>
+        <div class="centro"></div>
+    </div>
+
+</body>
+</html>
