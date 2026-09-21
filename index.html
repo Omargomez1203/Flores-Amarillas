@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -24,7 +25,89 @@
             font-family: Georgia, serif;
         }
 
-        /* Sol */
+        /* =========================
+           PANTALLA DE SORPRESA
+        ========================== */
+
+        .sorpresa {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 25px;
+
+            background: linear-gradient(
+                135deg,
+                #fff4c2,
+                #ffd86b,
+                #f7b733
+            );
+
+            transition: opacity 1.2s ease, visibility 1.2s ease;
+        }
+
+        .sorpresa.oculta {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .sobre {
+            font-size: 75px;
+            margin-bottom: 20px;
+            animation: flotar 2s ease-in-out infinite;
+        }
+
+        .sorpresa h1 {
+            color: #5b3515;
+            font-size: clamp(32px, 7vw, 60px);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 5px rgba(255,255,255,.6);
+        }
+
+        .sorpresa p {
+            color: #6b451c;
+            font-size: clamp(18px, 4vw, 26px);
+            margin-bottom: 35px;
+        }
+
+        .boton {
+            border: none;
+            padding: 16px 32px;
+            border-radius: 50px;
+            background: #fff;
+            color: #c88900;
+            font-size: 20px;
+            font-family: Georgia, serif;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(91,53,21,.25);
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .boton:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 30px rgba(91,53,21,.35);
+        }
+
+        @keyframes flotar {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* =========================
+           SOL
+        ========================== */
+
         .sun {
             position: absolute;
             width: 120px;
@@ -47,7 +130,10 @@
             }
         }
 
-        /* Mensaje */
+        /* =========================
+           MENSAJE
+        ========================== */
+
         .mensaje {
             position: absolute;
             top: 15%;
@@ -100,7 +186,10 @@
             }
         }
 
-        /* Campo */
+        /* =========================
+           CAMPO
+        ========================== */
+
         .campo {
             position: absolute;
             bottom: 0;
@@ -113,7 +202,10 @@
             );
         }
 
-        /* Flores */
+        /* =========================
+           FLORES
+        ========================== */
+
         .flor {
             position: absolute;
             bottom: 18%;
@@ -174,7 +266,8 @@
             }
         }
 
-        /* Posiciones de flores */
+        /* Posiciones */
+
         .f1 {
             left: 5%;
             transform: scale(1.1);
@@ -204,7 +297,10 @@
             transform: scale(1.2);
         }
 
-        /* Pétalos cayendo */
+        /* =========================
+           PÉTALOS CAYENDO
+        ========================== */
+
         .petalo-caida {
             position: absolute;
             top: -50px;
@@ -255,7 +351,10 @@
             animation-delay: 1.5s;
         }
 
-        /* Estrellas */
+        /* =========================
+           ESTRELLAS
+        ========================== */
+
         .estrella {
             position: absolute;
             color: white;
@@ -290,7 +389,10 @@
             left: 45%;
         }
 
-        /* Adaptación para celular */
+        /* =========================
+           CELULAR
+        ========================== */
+
         @media (max-width: 600px) {
 
             .mensaje {
@@ -322,17 +424,52 @@
             .f5 {
                 right: -5%;
             }
+
+            .sobre {
+                font-size: 60px;
+            }
+
+            .sorpresa h1 {
+                font-size: 35px;
+            }
+
+            .sorpresa p {
+                font-size: 19px;
+            }
         }
     </style>
 </head>
 
 <body>
 
+    <!-- =========================
+         PANTALLA INICIAL
+    ========================== -->
+
+    <div class="sorpresa" id="sorpresa">
+
+        <div class="sobre">💌</div>
+
+        <h1>Tengo algo para ti...</h1>
+
+        <p>
+            Es pequeño, pero está hecho con mucho cariño. 💛
+        </p>
+
+        <button class="boton" onclick="abrirSorpresa()">
+            Abrir sorpresa 🌻
+        </button>
+
+    </div>
+
+
     <!-- Sol -->
     <div class="sun"></div>
 
+
     <!-- Mensaje -->
     <div class="mensaje">
+
         <h1>🌻 Flores amarillas 🌻</h1>
 
         <p>
@@ -342,12 +479,15 @@
         </p>
 
         <div class="corazon">💛</div>
+
     </div>
+
 
     <!-- Estrellas -->
     <div class="estrella e1">✦</div>
     <div class="estrella e2">✦</div>
     <div class="estrella e3">✦</div>
+
 
     <!-- Pétalos cayendo -->
     <div class="petalo-caida pca1"></div>
@@ -356,10 +496,12 @@
     <div class="petalo-caida pca4"></div>
     <div class="petalo-caida pca5"></div>
 
+
     <!-- Campo -->
     <div class="campo"></div>
 
-    <!-- Flores -->
+
+    <!-- Flor 1 -->
     <div class="flor f1">
         <div class="petalo p1"></div>
         <div class="petalo p2"></div>
@@ -372,6 +514,8 @@
         <div class="centro"></div>
     </div>
 
+
+    <!-- Flor 2 -->
     <div class="flor f2">
         <div class="petalo p1"></div>
         <div class="petalo p2"></div>
@@ -384,6 +528,8 @@
         <div class="centro"></div>
     </div>
 
+
+    <!-- Flor 3 -->
     <div class="flor f3">
         <div class="petalo p1"></div>
         <div class="petalo p2"></div>
@@ -396,6 +542,8 @@
         <div class="centro"></div>
     </div>
 
+
+    <!-- Flor 4 -->
     <div class="flor f4">
         <div class="petalo p1"></div>
         <div class="petalo p2"></div>
@@ -408,6 +556,8 @@
         <div class="centro"></div>
     </div>
 
+
+    <!-- Flor 5 -->
     <div class="flor f5">
         <div class="petalo p1"></div>
         <div class="petalo p2"></div>
@@ -419,6 +569,23 @@
         <div class="petalo p8"></div>
         <div class="centro"></div>
     </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        function abrirSorpresa() {
+
+            const sorpresa = document.getElementById("sorpresa");
+
+            sorpresa.classList.add("oculta");
+
+        }
+
+    </script>
 
 </body>
 </html>
